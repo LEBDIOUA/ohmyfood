@@ -1,0 +1,9 @@
+@function fontcouleur($bgcolor: $blanc){
+    @if (lightness($bgcolor) <= 60%){
+        @return $blanc;
+    }
+    @else{
+        @return $noir;
+    }
+}
+

@@ -1,0 +1,51 @@
+.fa-solid{
+    color: $violet;
+}
+.fonctionnement__icons, .heart{
+    @include police($family:null, $familysuite:null, $size: 22px);
+}
+.fa-list, .fa-tablet-screen-button{
+    color: $grisclair;
+}
+.fa-heart{
+    @include size($width: 22px, $height: 21px);
+    &.fa-solid{
+        @include bgcolor($bgcolor: $violet, $iconCalledMixin: true);
+        display: none;
+    }
+    &.fa-regular{
+        color: $violet;  
+    }
+}
+.restaurants{
+    .heart{
+        &:hover{
+            .fa-solid{
+                display: inline;
+            }
+            .fa-regular{
+                display: none;
+            }
+        }
+    }
+}
+.restaurants{
+    .card__lien:nth-child(3){
+        @include changerCoeur($solid: true);
+    }
+}
+.fonctionnement{
+    &__btn{
+        &numbers{
+            @include size($width: 24px, $height: 24px);
+            border: 1px solid $violet;
+            border-radius: 12px 12px;
+            display: flex !important;
+            @include centrer;
+            @include bgcolor($violet);
+            @include police($family: "Roboto", $familysuite: sans-serif, $size: 14.18px, $lineheight: 16.62px);
+            transform: translate(-10px);
+            box-sizing: border-box;
+        }
+    }
+}

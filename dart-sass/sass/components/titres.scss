@@ -1,0 +1,39 @@
+.soustitre{
+    align-self: flex-start;
+    @include police($weight: 700, $size: 24px, $lineheight: 28.13px);
+    @include padding(calc($padding - 30px), 0, calc($padding - 30px), 0);
+}
+header{
+    .header{
+        /*&__logo{
+            @include size($width: 197px, $height 36px);
+        }*/
+        &__logo{
+            @include police($family: "Shrikhand", $familysuite: cursive, $weight: 400, $style: italic, $size: 30px, $lineheight: 43.74px);
+        }
+    }
+}
+.infobar{ 
+    &__description{
+        color: $grisfonce;
+        @include police($size: 18px, $lineheight: 21.09px);
+    }
+}
+.restaurants{
+    .card{ 
+        &__detail{ 
+            &titre{
+                @include police($weight: 700, $size: 18px, $lineheight: 21.09px);
+
+            } 
+            &description{
+                @include police($weight: 300, $size: 17px, $lineheight: 19.92px);
+            }  
+        }  
+    }
+}
+.footer{
+    &__logo{
+        @include police($family: "Shrikhand", $familysuite: cursive, $weight: 400, $style: italic, $size: 18px, $lineheight: 26.24px);
+    }  
+}

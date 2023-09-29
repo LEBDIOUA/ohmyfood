@@ -1,0 +1,17 @@
+@import "../abstracts/variables.scss";
+body *{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    background: transparent;
+    line-height: 0;
+}
+body{
+    margin-left: auto;
+    margin-right: auto;
+}
+a{
+    text-decoration: none;
+    color: $noir;
+}

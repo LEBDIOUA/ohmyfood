@@ -1,0 +1,21 @@
+header{
+    @include flexbox($direction: column);
+    @include size($width: 100%);
+    .header{
+        @include flexbox($direction: row);
+        @include centrer;
+        @include size($width: 100%, $height: 63px);
+        @include shadow($val2: 2px, $val3: 4px);
+        z-index: 1;
+        &__navbar{
+            display: none;
+        }
+        &__localisation{
+            @include flexbox($direction: row, $gap: 17px);
+            @include centrer;
+            @include bgcolor($bgcolor: $localisation-color, $color: $grisfonce);
+            @include police($weight: 500, $size: 16px, $lineheight: 18.75px);
+            @include size($width: 100%, $height: 50px);
+        }
+    }
+}

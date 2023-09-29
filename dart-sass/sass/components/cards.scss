@@ -1,0 +1,41 @@
+.card{
+    @include flexbox($direction: column);
+    @include bgcolor();
+    @include size($width: 340px);
+    @include radius(-5);
+    position: relative;
+    &__lien{
+        background: $blanc;
+        @include size($width: 340px);
+        @include radius(-5);
+        @include shadow($val2: 4px, $val3: 15px, $colorshadow: rgba(0, 0, 0, 0.1));  
+    }
+    &__img{
+        @include size($width: 100%, $height: 190px);
+        @include radiuscard(15px, 15px);
+        object-fit: cover;
+    }
+    &__lien:nth-child(n+4){
+        .card__nouveau{
+           display: none; 
+        }
+    }
+    &__nouveau{
+        @include bgcolor($bgcolor: $vert, $color: $vertfonce);
+        @include size($width: fit-content);
+        @include padding($top: calc($padding / 8), $right: calc($padding / 4), $bottom: calc($padding / 8), $left: calc($padding / 4));
+        position: absolute;
+        left: 75%;
+        top: 5%;
+        @include police($weight: 500, $size: 14px, $lineheight: 16.91px); 
+    }
+    &__info{
+        @include size($width: 100%);
+        @include flexbox(row);
+        justify-content: space-between;
+        @include padding($top: 15px, $right: 25px, $bottom: 15px, $left: 15px);
+    } 
+    &__detail{
+        @include flexbox($direction: column, $gap: 5px);
+    }
+}

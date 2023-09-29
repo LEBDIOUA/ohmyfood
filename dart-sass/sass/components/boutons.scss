@@ -1,0 +1,35 @@
+%btn{
+    @include flexbox($direction: row, $gap: 20px);
+    @include size($width: 325px, $height: 72.38px);
+    @include radius;
+    @include shadow($val2: 4px, $val3: 15px);
+    @include bgcolor($bg-color);
+    @include centrer;
+}
+.infobar{
+    &__btn--explorer{
+        @extend %btn;
+        @include police($weight: 500, $size: 16px, $lineheight: 18.75px);
+        @include radius(5);
+        @include bgcolor($bgcolor:$violet, $lineargradientCalledMixin: true);
+        @include size($width: 218px, $height: 50px);
+    }
+}
+.fonctionnement{
+    &__btn{
+        @extend %btn;
+        @include police($weight: 500, $size: 16px, $lineheight: 18.75px);
+        justify-content: flex-start;
+        &--numbers{
+            @include size($width: 24px, $height: 24px);
+            border: 1px solid $violet;
+            border-radius: 12px 12px;
+            @include flexbox();
+            @include centrer;
+            @include bgcolor($bgcolor: $violet);
+            @include police($size: 14.18px, $lineheight: 16.62px);
+            transform: translate(-10px);
+            box-sizing: border-box;
+        }
+    }
+}
