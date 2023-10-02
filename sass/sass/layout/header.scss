@@ -1,21 +1,35 @@
 header{
-    @include flexbox($direction: column);
+    @include flexbox($direction: column, $centrer: false);
     @include size($width: 100%);
     .header{
-        @include flexbox($direction: row);
-        @include centrer;
+        @include flexbox($direction: row, $gap: 70px, $centrer: true);
+        justify-content: flex-start;
+        @include padding($top: 0, $right: 20, $bottom: 0, $left: 20);
         @include size($width: 100%, $height: 63px);
-        @include shadow($val2: 2px, $val3: 4px);
+        @include shadow($right: 2px, $bottom: 4px);
         z-index: 1;
         &__navbar{
-            display: none;
+            //display: inline;
+            .fa-arrow-left{
+                color: $grisfonce;
+                &:hover{
+                    opacity:.6;
+                }
+            }
         }
         &__localisation{
             @include flexbox($direction: row, $gap: 17px);
-            @include centrer;
-            @include bgcolor($bgcolor: $localisation-color, $color: $grisfonce);
+            @include bgcolor($bgcolor: $localisation-color, $element: "localisation");
             @include police($weight: 500, $size: 16px, $lineheight: 18.75px);
             @include size($width: 100%, $height: 50px);
+        }
+    }
+}
+body .index header{
+    .header{
+        @include flexbox();
+        &__navbar{
+            display: none;
         }
     }
 }

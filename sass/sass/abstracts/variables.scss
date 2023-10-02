@@ -10,8 +10,6 @@ $grisclair: rgba(126, 126, 126, 1);
 $rose: #FF79DA;
 
 $padding: 30px;
-
-$footerCalledMixin: false;
-$lineargradientCalledMixin: false;
-$headerCalledMixin: false;
-$iconCalledMixin: false;
+$notchange: false;
+$element: null;
+$survol: false;

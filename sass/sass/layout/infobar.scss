@@ -1,6 +1,5 @@
 .infobar{
     @include flexbox($direction: column, $gap: 25px);
-    @include centrer;
     @include bgcolor($bg_color);
     @include padding($top: calc($padding + 15px), $right: $padding, $bottom: calc($padding + 15px), $left: $padding,);
     text-align: center;

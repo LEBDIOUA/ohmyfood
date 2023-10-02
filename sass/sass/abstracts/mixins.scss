@@ -1,53 +1,83 @@
-@mixin flexbox($direction : row, $gap: 0px){
-    display: flex;
+@import "./variables.scss";
+@mixin flexbox($direction : row, $gap: 0px, $wrap: nowrap, $centrer: true, $important: false){
+    @if ($important == false){
+        display: flex;
+    }
+    @else {
+        display: flex !important;
+    }
     flex-direction: $direction;
     gap: $gap;
-}
-@mixin centrer{
-    justify-content: center;
-    align-items: center;
-}
-@mixin radius($val:0){
-    border-radius: 20px + $val;
-}
-@mixin radiuscard($val1: 0, $val2: 0, $val3: 0, $val4: 0){
-        border-radius: $val1 $val2 $val3 $val4;
-}
-@mixin shadow($val1: 0px, $val2: 0px, $val3: 0px, $val4: 0px, $colorshadow: rgba(0, 0, 0, 0.15)){
-    box-shadow: $val1 $val2 $val3 $val4 $colorshadow;
-}
-@mixin bgcolor($bgcolor: white, $color: null, $lineargradientCalledMixin: false, $iconCalledMixin: false){  
-    @if $color != null{
-        background: $bgcolor; 
-        color: $color;
-        *{color: $color;}
+    flex-wrap: $wrap;
+    @if ($centrer == true){
+        justify-content: center;
+        align-items: center;
     }
-    @else if ($color == null){
-        @if $iconCalledMixin == true{
-            background: linear-gradient(360deg, $violet -11.44%, $rose 123.93%);  
-            -webkit-background-clip: text; 
-            background-clip: text;
-            color: transparent; 
-            $iconCalledMixin: false;
-        }
-        @else if $lineargradientCalledMixin == true{
-            background: linear-gradient(360deg, $violet -11.44%, $rose 123.93%);  
-            color: fontcouleur($bgcolor);
-            $lineargradientCalledMixin: false;
-        }
-        @else{
-            background: $bgcolor; 
-            color: fontcouleur($bgcolor);
-            *{color: fontcouleur($bgcolor);}
-        }
+    @else if ($centrer == true){
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+}
+@mixin radius($val: 0, $top: 0, $right: 0, $bottom: 0, $left: 0){
+    @if ($val != 0){
+        border-radius: $val;
+    }
+    @else{
+        border-radius: $top $right $bottom $left;
+    } 
+}
+@mixin shadow($top: 0px, $right: 0px, $bottom: 0px, $left: 0px, $colorshadow: rgba(0, 0, 0, 0.15)){
+    box-shadow: $top $right $bottom $left $colorshadow;
+}
+@mixin bgcolor($bgcolor: white, $element: null){  
+    @if ($element == "footer"){
+        background: $bgcolor; 
+        color: $blanc;
+        *{color: $blanc;}
+    }
+    @else if ($element == "iconheart"){
+        background: linear-gradient(360deg, $violet -11.44%, $rose 123.93%);  
+        -webkit-background-clip: text; 
+        background-clip: text;
+        color: transparent;
+        $element: null;
+    }
+    @else if ($element == "iconnumber"){
+        background: $bgcolor;
+        color: $blanc;
+        $element: null;
+    }
+    @else if ($element == "linearbtn"){
+        background: linear-gradient(360deg, $violet -11.44%, $rose 123.93%);
+        color: $blanc;
+        $element: null;
+    }    
+    @else if ($element == "localisation"){
+        background: $bgcolor;
+        *{color: $grisfonce;}
+        $element: null;
+    }
+    @else if ($element == "new"){
+        background: &$bgcolor;
+        color: $vertfonce;
+        $element: null;
+    }
+    @else{
+        background: $bgcolor; 
+        color: $noir;
     }
 }
 @mixin size($width: auto, $height: auto){ 
     width: $width;
     height: $height;
 }
-@mixin padding($top: 0, $right: 0, $bottom: 0, $left: 0){
-    padding: $top $right $bottom $left;
+@mixin padding($val: 0, $top: 0, $right: 0, $bottom: 0, $left: 0){
+    @if ($val != 0){
+        padding: $val;
+    }
+    @else{
+        padding: $top $right $bottom $left;
+    }
 }
 @mixin police($family: "Roboto", $familysuite: sans-serif, $weight: 0, $style: normal, $size: 0px, $lineheight: 0px){
     font-family:  $family, $familysuite !important;
@@ -59,18 +89,62 @@
 @mixin changerCoeur($solid: false, $regular: true){
     @if ($solid == true){
         .fa-solid{
-            display: inline;
+            opacity: 1;
         }
         .fa-regular{
-            display: none;
+            opacity: 0;
         }
     }
     @else{
         .fa-solid{
-            display: none;
+            opacity: 0;
         }
         .fa-regular{
-            display: inline;
+            opacity: 1;
         }
     }
 }
+// @mixin survolheart($sens: null){
+//     @include animations();
+//     @debug $survol;
+//     @if ($sens == "normal"){
+//         &:hover{
+//             .fa-solid{
+//                 animation: apparence 2s 0.5s forwards;
+//             }
+//             .fa-regular{
+//                 animation: disparaitre 1s forwards;
+//             }
+//             $survol: true !global;
+//             @debug $survol;
+//         }
+//     }
+//     @if($sens == "reverse"){
+//         @if ($survol == true){
+//             &:not(:hover){
+//                 @debug $survol;
+//                 .fa-solid{
+//                     animation: disparaitre 2s;
+//                 }
+//                 $survol : false !global;
+//                 @debug $survol;
+//             }
+//         }
+//     }    
+//  }
+//  @mixin animations(){
+//     @keyframes apparence{
+//         0%{opacity: 0;}
+//         25%{opacity: 0.25;}
+//         50%{opacity: 0.5;}
+//         75%{opacity: 0.75;}
+//         100%{opacity: 1;}
+//     }
+//     @keyframes disparaitre{
+//         0%{opacity: 1;}
+//         25%{opacity: 0.75;}
+//         50%{opacity: 0.5;}
+//         75%{opacity: 0.25;}
+//         100%{opacity: 0;}  
+//     }
+// }

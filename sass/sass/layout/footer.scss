@@ -1,5 +1,5 @@
 .footer{    
-    @include flexbox($direction: column, $gap: 20px);
+    @include flexbox($direction: column, $gap: 20px, $centrer: false);
     @include padding($top: $padding, $right: $padding, $bottom: $padding, $left: $padding);
-    @include bgcolor($bgcolor: $grisfonce); 
+    @include bgcolor($bgcolor: $grisfonce, $element: "footer"); 
 }

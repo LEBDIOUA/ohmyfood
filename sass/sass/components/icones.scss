@@ -1,66 +1,66 @@
-.fa-solid{
-    background: linear-gradient(360deg, $violet -11.44%, $rose 123.93%);  
-    -webkit-background-clip: text; 
-    background-clip: text;
-    color: transparent; 
+.fa-solid, .fa-regular {
+   color: $violet;
 }
-.fonctionnement__icons, .heart{
+.fonctionnement__icons, .fa-heart, .fa-arrow-left{
     font-size: 22px;
 }
 .fa-list, .fa-tablet-screen-button{
     color: $grisclair;
 }
 .fa-heart{
-    @include size($width: 22px, $height: 21px);
+    position: absolute;
+    top: 0;
+    left: 0;
     &.fa-solid{
-        
-        // display: none;
+        @include bgcolor($bgcolor: $violet, $element: "iconheart");
+        opacity: 0;
     }
     &.fa-regular{
-        color: $violet;
+        opacity: 1;
     }
 }
-.restaurants{
-    .card__info, .card__detail, .heart{
-        border: 1px solid red;
+.card__lien:not(:nth-child(3)) .heart, .restaurant .heart:not(.restaurant.favori .heart){
+    &:hover{
+        .fa-solid{
+            animation: apparence 1s step-start 0.5s forwards;
+        }
+        .fa-regular{
+            animation: disparaitre 1s forwards;
+        }
     }
-    // .heart{
-    //     &:hover{
-    //         .fa-solid{
-    //             display: inline;
-    //             transform: scale(0);
-    //             animation-name: apparence;
-    //             animation-duration: 0.5s;
-    //             transform: initial;
-                
-    //         }
-    //         .fa-regular{
-    //             display: none;
-    //         }
-    //     }
-    // }
+    &:not(:hover){
+        .fa-solid{
+            animation: disparaitre 1s step-start forwards;
+        }
+    }
 }
 @keyframes apparence{
-    from{transform: scale(0);}
-    to{transform: initial;}
+    0%{opacity: 0;}
+    25%{opacity: 0.25;}
+    50%{opacity: 0.5;}
+    75%{opacity: 0.75;}
+    100%{opacity: 1;}
 }
-.restaurants{
-    .card__lien:nth-child(3){
-        @include changerCoeur($solid: true);
-    }
+@keyframes disparaitre{
+    0%{opacity: 1;}
+    25%{opacity: 0.75;}
+    50%{opacity: 0.5;}
+    75%{opacity: 0.25;}
+    100%{opacity: 0;}  
+}
+.index .card__lien:nth-child(3), .restaurant.favori .heart{
+    @include changerCoeur($solid: true);
 }
 .fonctionnement{
     &__btn{
         &numbers{
             @include size($width: 24px, $height: 24px);
             border: 1px solid $violet;
-            border-radius: 12px 12px;
-            display: flex !important;
-            @include centrer;
-            @include bgcolor($violet);
+            @include radius($val: 12px); /*border-radius: 12px 12px;*/
+            @include flexbox($centrer: true, $important: true);
+            @include bgcolor($violet, $element: "iconnumber");
             @include police($family: "Roboto", $familysuite: sans-serif, $size: 14.18px, $lineheight: 16.62px);
             transform: translate(-10px);
-            box-sizing: border-box;
         }
     }
 }

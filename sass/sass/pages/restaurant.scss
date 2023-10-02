@@ -1,0 +1,38 @@
+.restaurant{
+    main{
+        position: relative;
+        height: auto;
+    }
+    &__img{
+        @include size($width: 375px, $height: 275px);
+    }
+    &__titre{
+        @include flexbox($direction: row);
+        @include size($width: 100%);
+        justify-content: space-between;
+    }
+    .menu{
+        @include flexbox($direction: column, $gap:40px);
+        &__complet{
+            @include flexbox($direction: column, $gap:12px, $centrer: false)
+        }
+        &__titre{
+            @include size($width: fit-content);
+            @include padding($top: 0px, $right: 0px, $bottom: 5px, $left: 0px);
+            background-image: linear-gradient(to right, rgba(153, 226, 208, 1) 40px, transparent 0px);
+            background-position: 0 100%;
+            background-repeat: no-repeat; 
+            background-size: 100% 3px;
+        }
+        @include bgcolor($bg-color);
+        @include padding($top: 30px, $right: 10px, $bottom: 30px, $left: 10px);
+        @include radius($top: 30px, $right: 30px, $bottom: 0px, $left: 0px);
+    }
+}
+.restaurant footer, .restaurant .menu{
+    position: relative;
+    top: -60px;
+}
+.container{
+    height: inherit;
+}

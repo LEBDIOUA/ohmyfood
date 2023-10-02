@@ -21,7 +21,6 @@ header{
         &__detail{ 
             &titre{
                 @include police($weight: 700, $size: 18px, $lineheight: 21.09px);
-
             } 
             &description{
                 @include police($weight: 300, $size: 17px, $lineheight: 19.92px);
@@ -33,4 +32,24 @@ header{
     &__logo{
         @include police($family: "Shrikhand", $familysuite: cursive, $weight: 400, $style: italic, $size: 18px, $lineheight: 26.24px);
     }  
+}
+.restaurant{
+    &__nom{
+        @include police($family: "Shrikhand", $familysuite: cursive, $weight: 400, $style: italic, $size: 27.5px, $lineheight: 40.82px);
+    }
+    .menu__titre{
+        text-transform: uppercase;
+        @include police($weight: 300, $size: 16px, $lineheight: 18.75px);
+    }
+    .choix{
+        &__titre{
+            @include police($weight: 500, $size: 18px, $lineheight: 21.09px);
+        }
+        &__description{
+            @include police($weight: 300, $size: 15.04px, $lineheight: 17.63px);
+        }
+        &__prix{
+            @include police($weight: 700, $size: 15.04px, $lineheight: 17.63px);
+        }
+    } 
 }

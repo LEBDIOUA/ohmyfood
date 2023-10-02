@@ -1,14 +1,14 @@
 .card{
-    @include flexbox($direction: column);
+    @include flexbox($direction: column, $centrer: false);
     @include bgcolor();
     @include size($width: 340px);
-    @include radius(-5);
+    @include radius(15px);
     position: relative;
     &__lien{
-        background: $blanc;
+        @include bgcolor();
         @include size($width: 340px);
-        @include radius(-5);
-        @include shadow($val2: 4px, $val3: 15px, $colorshadow: rgba(0, 0, 0, 0.1));  
+        @include radius(15px);
+        @include shadow($right: 4px, $bottom: 15px, $colorshadow: rgba(0, 0, 0, 0.1));  
         &:nth-child(n+4){
             .card__nouveau{
                display: none; 
@@ -17,11 +17,11 @@
     }
     &__img{
         @include size($width: 100%, $height: 190px);
-        @include radiuscard(15px, 15px);
+        @include radius($val: 15px);
         object-fit: cover;
     }
     &__nouveau{
-        @include bgcolor($bgcolor: $vert, $color: $vertfonce);
+        @include bgcolor($bgcolor: $vert, $element: "new");
         @include size($width: fit-content);
         @include padding($top: calc($padding / 8), $right: calc($padding / 4), $bottom: calc($padding / 8), $left: calc($padding / 4));
         position: absolute;
@@ -31,11 +31,11 @@
     }
     &__info{
         @include size($width: 100%);
-        @include flexbox(row);
+        @include flexbox(row, $centrer: false);
         justify-content: space-between;
         @include padding($top: 15px, $right: 25px, $bottom: 15px, $left: 15px);
     } 
     &__detail{
-        @include flexbox($direction: column, $gap: 5px);
+        @include flexbox($direction: column, $gap: 5px, $centrer: false);
     }
 }

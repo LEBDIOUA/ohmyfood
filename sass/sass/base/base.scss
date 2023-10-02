@@ -1,24 +1,25 @@
 body{
     @include size($width: 375px);
     max-width: 375px;
-    font-family: 'Roboto', sans-serif;
+    @include police();
 }
 .container{
     main{
-        @include flexbox($direction: column, $gap: 20px);
-        @include size($width: 100%);
+        @include flexbox($direction: column, $gap: 20px, $centrer: false);
+        @include size($width: 100%, $height: auto);
     }
 }
 .fonctionnement{
     @include flexbox($direction: column, $gap: 25px);
     @include size($width: 100%);
-    @include centrer;
     @include padding($top: $padding, $right: calc($padding / 2), $bottom: calc($padding + 30px), $left: calc($padding / 2));
 }
 .restaurants{
     @include flexbox($direction: column, $gap: 15px);
-    @include size($width: 100%);
-    @include centrer;
+    @include size($width: 100%, $height: auto);
     @include padding($top: $padding, $right: calc($padding / 2), $bottom: calc($padding + 30px), $left: calc($padding / 2));
-    background: $bg-color;
+    @include bgcolor($bg-color);
+}
+img{
+    object-fit: cover;
 }
