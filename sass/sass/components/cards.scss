@@ -9,16 +9,16 @@
         @include size($width: 340px);
         @include radius(-5);
         @include shadow($val2: 4px, $val3: 15px, $colorshadow: rgba(0, 0, 0, 0.1));  
+        &:nth-child(n+4){
+            .card__nouveau{
+               display: none; 
+            }
+        }
     }
     &__img{
         @include size($width: 100%, $height: 190px);
         @include radiuscard(15px, 15px);
         object-fit: cover;
-    }
-    &__lien:nth-child(n+4){
-        .card__nouveau{
-           display: none; 
-        }
     }
     &__nouveau{
         @include bgcolor($bgcolor: $vert, $color: $vertfonce);

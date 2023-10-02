@@ -1,8 +1,0 @@
-.infobar{
-    @include flexbox($direction: column, $gap: 25px);
-    @include centrer;
-    background-color: $bg-color;
-    padding: 45px 30px;    
-    box-sizing:content-box;
-    text-align: center;
-}

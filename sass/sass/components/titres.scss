@@ -5,9 +5,6 @@
 }
 header{
     .header{
-        /*&__logo{
-            @include size($width: 197px, $height 36px);
-        }*/
         &__logo{
             @include police($family: "Shrikhand", $familysuite: cursive, $weight: 400, $style: italic, $size: 30px, $lineheight: 43.74px);
         }

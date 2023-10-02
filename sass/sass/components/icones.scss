@@ -1,8 +1,11 @@
 .fa-solid{
-    color: $violet;
+    background: linear-gradient(360deg, $violet -11.44%, $rose 123.93%);  
+    -webkit-background-clip: text; 
+    background-clip: text;
+    color: transparent; 
 }
 .fonctionnement__icons, .heart{
-    @include police($family:null, $familysuite:null, $size: 22px);
+    font-size: 22px;
 }
 .fa-list, .fa-tablet-screen-button{
     color: $grisclair;
@@ -10,24 +13,36 @@
 .fa-heart{
     @include size($width: 22px, $height: 21px);
     &.fa-solid{
-        @include bgcolor($bgcolor: $violet, $iconCalledMixin: true);
-        display: none;
+        
+        // display: none;
     }
     &.fa-regular{
-        color: $violet;  
+        color: $violet;
     }
 }
 .restaurants{
-    .heart{
-        &:hover{
-            .fa-solid{
-                display: inline;
-            }
-            .fa-regular{
-                display: none;
-            }
-        }
+    .card__info, .card__detail, .heart{
+        border: 1px solid red;
     }
+    // .heart{
+    //     &:hover{
+    //         .fa-solid{
+    //             display: inline;
+    //             transform: scale(0);
+    //             animation-name: apparence;
+    //             animation-duration: 0.5s;
+    //             transform: initial;
+                
+    //         }
+    //         .fa-regular{
+    //             display: none;
+    //         }
+    //     }
+    // }
+}
+@keyframes apparence{
+    from{transform: scale(0);}
+    to{transform: initial;}
 }
 .restaurants{
     .card__lien:nth-child(3){
