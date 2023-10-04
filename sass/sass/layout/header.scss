@@ -1,11 +1,8 @@
 header{
-    @include flexbox($direction: column, $centrer: false);
-    @include size($width: 100%);
+    @include box($direction: column, $width: 100%);
     .header{
-        @include flexbox($direction: row, $gap: 70px, $centrer: true);
+        @include box($direction: row, $centrer: center, $paddingtop: 0, $paddingright: 20, $paddingbottom: 0, $paddingleft: 20, $width: 100%, $height: 63px);
         justify-content: flex-start;
-        @include padding($top: 0, $right: 20, $bottom: 0, $left: 20);
-        @include size($width: 100%, $height: 63px);
         @include shadow($right: 2px, $bottom: 4px);
         z-index: 1;
         &__navbar{
@@ -18,16 +15,14 @@ header{
             }
         }
         &__localisation{
-            @include flexbox($direction: row, $gap: 17px);
-            @include bgcolor($bgcolor: $localisation-color, $element: "localisation");
-            @include police($weight: 500, $size: 16px, $lineheight: 18.75px);
-            @include size($width: 100%, $height: 50px);
+            @include box($direction: row, $gap: 17px, $centrer: center, $bgcolor: $localisation-color, $element: "localisation", $width: 100%, $height: 50px);
+            @include police($weight: 500, $size: 16, $lineheight: 18.75);
         }
     }
 }
 body .index header{
     .header{
-        @include flexbox();
+        @include flexbox($direction: row, $centrer: center);
         &__navbar{
             display: none;
         }

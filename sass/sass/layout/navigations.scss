@@ -1,10 +1,12 @@
 .footer{
     &__navigation{
-        @include flexbox($direction: column, $gap: 10px, $centrer: false);
-        @include padding($top: 0, $right: 0, $bottom: 0, $left: 0);
+        @include box($direction: column, $gap: 10px, $paddingtop: 0, $paddingright: 0, $paddingbottom: 0, $paddingleft: 0);
+        @media #{$medium}{
+            @include flexbox($direction: row, $gap: 16px);
+        }
         li{
-            @include police($weight: 500, $size: 16px, $lineheight: 18.75px);
-            @include flexbox($direction: row, $gap: 10px, $centrer: false);
+            @include police($weight: 500, $size: 16, $lineheight: 18.75);
+            @include flexbox($direction: row, $gap: 10px);
         }
     }
 } 

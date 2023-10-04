@@ -4,17 +4,33 @@
         height: auto;
     }
     &__img{
-        @include size($width: 375px, $height: 275px);
+        @include size($width: 100%, $height: 275px);
+        @media #{$medium}{
+            $height: 383px;
+        }
     }
     &__titre{
-        @include flexbox($direction: row);
-        @include size($width: 100%);
+        @include box($direction: row, $centrer: center, $width: 100%);
         justify-content: space-between;
+        
+        @media #{$medium} {
+            text-align: center;
+            @include flexbox($centrer: center, $gap: 15px);            
+        }
     }
     .menu{
-        @include flexbox($direction: column, $gap:40px);
+        @include box($direction: column, $gap:40px, $centrer: center, $bgcolor: $bg-color, $paddingtop: 30px, $paddingright: 10px, $paddingbottom: 30px, $paddingleft: 10px, $width: 100%);
+        @include radius($top: 30px, $right: 30px, $bottom: 0px, $left: 0px);
+        margin: 0 auto;
+        @media #{$medium}{
+            @include size($width: 73.26%);
+            margin: 0 auto;
+        }
         &__complet{
-            @include flexbox($direction: column, $gap:12px, $centrer: false)
+            @include box($direction: column, $gap:12px, $width: 100%, $maxwidth: 634px);
+            @media #{$medium}{
+                width: 80%;
+            }
         }
         &__titre{
             @include size($width: fit-content);
@@ -24,9 +40,6 @@
             background-repeat: no-repeat; 
             background-size: 100% 3px;
         }
-        @include bgcolor($bg-color);
-        @include padding($top: 30px, $right: 10px, $bottom: 30px, $left: 10px);
-        @include radius($top: 30px, $right: 30px, $bottom: 0px, $left: 0px);
     }
 }
 .restaurant footer, .restaurant .menu{

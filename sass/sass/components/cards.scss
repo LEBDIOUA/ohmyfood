@@ -1,12 +1,15 @@
-.card{
-    @include flexbox($direction: column, $centrer: false);
-    @include bgcolor();
-    @include size($width: 340px);
+.card{    
+    @include box($direction : column, $centrer: center, $bgcolor: $blanc, $width: 100%);
     @include radius(15px);
     position: relative;
+
     &__lien{
         @include bgcolor();
         @include size($width: 340px);
+
+        @media #{$medium}{
+            @include size($width: 44%);
+        }
         @include radius(15px);
         @include shadow($right: 4px, $bottom: 15px, $colorshadow: rgba(0, 0, 0, 0.1));  
         &:nth-child(n+4){
@@ -17,23 +20,21 @@
     }
     &__img{
         @include size($width: 100%, $height: 190px);
-        @include radius($val: 15px);
+        @include radius($radius: 15px);
         object-fit: cover;
+        @media #{$medium}{
+
+        }
     }
     &__nouveau{
-        @include bgcolor($bgcolor: $vert, $element: "new");
-        @include size($width: fit-content);
-        @include padding($top: calc($padding / 8), $right: calc($padding / 4), $bottom: calc($padding / 8), $left: calc($padding / 4));
+        @include box($paddingtop: calc($padding / 8), $paddingright: calc($padding / 4), $paddingbottom: calc($padding / 8), $paddingleft: calc($padding / 4), $bgcolor: $vert, $element: "new", $width: fit-content);
         position: absolute;
         left: 75%;
         top: 5%;
-        @include police($weight: 500, $size: 14px, $lineheight: 16.91px); 
+        @include police($weight: 500, $size: 14, $lineheight: 16.91); 
     }
     &__info{
-        @include size($width: 100%);
-        @include flexbox(row, $centrer: false);
-        justify-content: space-between;
-        @include padding($top: 15px, $right: 25px, $bottom: 15px, $left: 15px);
+        @include box($direction: row, $centrer: space-between, $paddingtop: 15px, $paddingright: 25px, $paddingbottom: 15px, $paddingleft: 15px, $width: 100%);
     } 
     &__detail{
         @include flexbox($direction: column, $gap: 5px, $centrer: false);

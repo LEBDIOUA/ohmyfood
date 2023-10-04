@@ -1,93 +1,131 @@
 @import "./variables.scss";
-@mixin flexbox($direction : row, $gap: 0px, $wrap: nowrap, $centrer: true, $important: false){
-    @if ($important == false){
-        display: flex;
-    }
-    @else {
+
+@mixin box($direction : null, $gap: null, $wrap: null, $centrer: null, $important: false, $padding: null, $paddingtop: null, $paddingright: null, $paddingbottom: null, $paddingleft: null, $bgcolor: null, $element: null, $width: null, $maxwidth: null, $height: null, $maxheight: null){
+    @include flexbox($direction : $direction, $gap: $gap, $wrap: $wrap, $centrer: $centrer, $important: $important);
+    @include size($width: $width, $maxwidth: $maxwidth, $height: $height, $maxheight: $maxheight);
+    @include padding($padding: $padding, $top: $paddingtop, $right: $paddingright, $bottom: $paddingbottom, $left: $paddingleft);
+    @include bgcolor($bgcolor: $bgcolor, $element: $element);
+}
+
+@mixin flexbox($direction : null, $gap: null, $wrap: null, $centrer: null, $important: false){
+    @if $important {
         display: flex !important;
     }
-    flex-direction: $direction;
-    gap: $gap;
-    flex-wrap: $wrap;
-    @if ($centrer == true){
-        justify-content: center;
+    @else{
+        display: flex;
+    }
+    @if($direction != null){
+        flex-direction: $direction;
+    }
+    @if ($gap != null){
+        gap: $gap;
+    }
+    @if ($wrap != null){
+        flex-wrap: $wrap;
+    }    
+    @if ($centrer == center) {
+        @if ($wrap == wrap){
+            align-content: $centrer;
+        }
+        justify-content: $centrer;
+        align-items: $centrer;
+        align-self: center;      
+    }
+    @else if ($centrer == space-between or $centrer == flex-start){
+        justify-content: $centrer;
         align-items: center;
     }
-    @else if ($centrer == true){
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
 }
-@mixin radius($val: 0, $top: 0, $right: 0, $bottom: 0, $left: 0){
-    @if ($val != 0){
-        border-radius: $val;
+@mixin radius($radius: 0, $top: 0, $right: 0, $bottom: 0, $left: 0){
+    @if ($radius != 0){
+        border-radius: $radius;
     }
-    @else{
+    @else if ($top != 0 or $right != 0 or $bottom != 0 or $left != 0){
         border-radius: $top $right $bottom $left;
     } 
 }
-@mixin shadow($top: 0px, $right: 0px, $bottom: 0px, $left: 0px, $colorshadow: rgba(0, 0, 0, 0.15)){
-    box-shadow: $top $right $bottom $left $colorshadow;
-}
-@mixin bgcolor($bgcolor: white, $element: null){  
-    @if ($element == "footer"){
-        background: $bgcolor; 
-        color: $blanc;
-        *{color: $blanc;}
-    }
-    @else if ($element == "iconheart"){
-        background: linear-gradient(360deg, $violet -11.44%, $rose 123.93%);  
-        -webkit-background-clip: text; 
-        background-clip: text;
-        color: transparent;
-        $element: null;
-    }
-    @else if ($element == "iconnumber"){
-        background: $bgcolor;
-        color: $blanc;
-        $element: null;
-    }
-    @else if ($element == "linearbtn"){
-        background: linear-gradient(360deg, $violet -11.44%, $rose 123.93%);
-        color: $blanc;
-        $element: null;
-    }    
-    @else if ($element == "localisation"){
-        background: $bgcolor;
-        *{color: $grisfonce;}
-        $element: null;
-    }
-    @else if ($element == "new"){
-        background: &$bgcolor;
-        color: $vertfonce;
-        $element: null;
+@mixin shadow($shadow: 0, $top: 0px, $right: 0px, $bottom: 0px, $left: 0px, $colorshadow: rgba(0, 0, 0, 0.15)){
+    @if ($shadow != 0){
+        box-shadow: $shadow;
     }
     @else{
-        background: $bgcolor; 
-        color: $noir;
+        box-shadow: $top $right $bottom $left $colorshadow;
     }
 }
-@mixin size($width: auto, $height: auto){ 
-    width: $width;
-    height: $height;
+@mixin bgcolor($bgcolor: $blanc, $element: null){  
+    @if ($bgcolor != null){
+        @if ($element == "footer"){
+            background: $bgcolor; 
+            color: $blanc;
+            *{color: $blanc;}
+        }
+        @else if ($element == "iconheart"){
+            background: linear-gradient(360deg, $violet -11.44%, $rose 123.93%);  
+            -webkit-background-clip: text; 
+            background-clip: text;
+            color: transparent;
+        }
+        @else if ($element == "iconnumber"){
+            background: $bgcolor;
+            color: $blanc;
+        }
+        @else if ($element == "linearbtn"){
+            background: linear-gradient(360deg, $violet -11.44%, $rose 123.93%);
+            color: $blanc;
+        }    
+        @else if ($element == "localisation"){
+            background: $bgcolor;
+            *{color: $grisfonce;}
+        }
+        @else if ($element == "new"){
+            background: $bgcolor;
+            color: $vertfonce;
+        }
+        @else{
+            background: $bgcolor; 
+            color: $noir;
+        }
+    }
 }
-@mixin padding($val: 0, $top: 0, $right: 0, $bottom: 0, $left: 0){
-    @if ($val != 0){
-        padding: $val;
+@mixin size($width: auto, $maxwidth: null, $height: auto, $maxheight: null){ 
+    @if $width != null{
+        width: $width;
+    }
+    @if $height != null{
+        height: $height;
+    }
+    @if $maxwidth != null{
+        max-width: $maxwidth;
+    }
+    @if $maxheight != null{
+        max-height: $maxheight;
+    }
+}
+@mixin padding($padding: 0, $top: 0, $right: 0, $bottom: 0, $left: 0){
+    @if ($padding != null){
+        padding: $padding;
     }
     @else{
         padding: $top $right $bottom $left;
     }
 }
-@mixin police($family: "Roboto", $familysuite: sans-serif, $weight: 0, $style: normal, $size: 0px, $lineheight: 0px){
+@mixin police($family: "Roboto", $familysuite: sans-serif, $weight: 400, $style: normal, $size: 16, $lineheight: 1, $em: true){
     font-family:  $family, $familysuite !important;
     font-weight: $weight;    
     font-style: $style;
+    @if $em{
+        $size: calc($size / 16)+em;
+        $lineheight: calc($lineheight / 16)+em;
+    }
+    @else{
+        $size: $size+px;
+        $lineheight: $lineheight+px;
+    }
     font-size: $size;
-    line-height: $lineheight !important;
+    line-height: $lineheight;
 }
 @mixin changerCoeur($solid: false, $regular: true){
-    @if ($solid == true){
+    @if $solid {
         .fa-solid{
             opacity: 1;
         }
@@ -104,47 +142,21 @@
         }
     }
 }
-// @mixin survolheart($sens: null){
-//     @include animations();
-//     @debug $survol;
-//     @if ($sens == "normal"){
-//         &:hover{
-//             .fa-solid{
-//                 animation: apparence 2s 0.5s forwards;
-//             }
-//             .fa-regular{
-//                 animation: disparaitre 1s forwards;
-//             }
-//             $survol: true !global;
-//             @debug $survol;
-//         }
-//     }
-//     @if($sens == "reverse"){
-//         @if ($survol == true){
-//             &:not(:hover){
-//                 @debug $survol;
-//                 .fa-solid{
-//                     animation: disparaitre 2s;
-//                 }
-//                 $survol : false !global;
-//                 @debug $survol;
-//             }
-//         }
-//     }    
-//  }
-//  @mixin animations(){
-//     @keyframes apparence{
-//         0%{opacity: 0;}
-//         25%{opacity: 0.25;}
-//         50%{opacity: 0.5;}
-//         75%{opacity: 0.75;}
-//         100%{opacity: 1;}
-//     }
-//     @keyframes disparaitre{
-//         0%{opacity: 1;}
-//         25%{opacity: 0.75;}
-//         50%{opacity: 0.5;}
-//         75%{opacity: 0.25;}
-//         100%{opacity: 0;}  
-//     }
-// }
+@mixin respond-to($breakpoint) {
+    $raw-query: map-get($breakpoints, $breakpoint);
+  
+    @if $raw-query {
+      $query: if(
+        type-of($raw-query) == 'string',
+        unquote($raw-query),
+        inspect($raw-query)
+      );
+  
+      @media #{$query} {
+        @content;
+      }
+    } @else {
+      @error 'No value found for `#{$breakpoint}`. '
+           + 'Please make sure it is defined in `$breakpoints` map.';
+    }
+  }

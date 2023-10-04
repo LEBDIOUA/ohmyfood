@@ -1,55 +1,62 @@
 .soustitre{
     align-self: flex-start;
-    @include police($weight: 700, $size: 24px, $lineheight: 28.13px);
-    @include padding(calc($padding - 30px), 0, calc($padding - 30px), 0);
+    @include police($weight: 700, $size: 24, $lineheight: 28.13);
+    @include padding($top: calc($padding - 30px), $right: 0, $bottom: calc($padding - 30px), $left: 0);
+    @include size($width: 100%);
 }
 header{
     .header{
         &__logo{
-            @include police($family: "Shrikhand", $familysuite: cursive, $weight: 400, $style: italic, $size: 30px, $lineheight: 43.74px);
+            @include police($family: "Shrikhand", $familysuite: cursive, $weight: 400, $style: italic, $size: 30, $lineheight: 43.74);
+            @include size($width: 100%);
+            text-align: center;
         }
     }
 }
 .infobar{ 
     &__description{
         color: $grisfonce;
-        @include police($size: 18px, $lineheight: 21.09px);
+        @include police($size: 18, $lineheight: 21.09);
     }
 }
 .restaurants{
     .card{ 
         &__detail{ 
             &titre{
-                @include police($weight: 700, $size: 18px, $lineheight: 21.09px);
+                @include police($weight: 700, $size: 18, $lineheight: 21.09);
             } 
             &description{
-                @include police($weight: 300, $size: 17px, $lineheight: 19.92px);
+                @include police($weight: 300, $size: 17, $lineheight: 19.92);
             }  
         }  
     }
 }
 .footer{
     &__logo{
-        @include police($family: "Shrikhand", $familysuite: cursive, $weight: 400, $style: italic, $size: 18px, $lineheight: 26.24px);
-    }  
+        @include police($family: "Shrikhand", $familysuite: cursive, $weight: 400, $style: italic, $size: 18, $lineheight: 26.24); 
+        @media #{$medium}{
+            @include size($width: fit-content);
+        } 
+    }
 }
 .restaurant{
     &__nom{
-        @include police($family: "Shrikhand", $familysuite: cursive, $weight: 400, $style: italic, $size: 27.5px, $lineheight: 40.82px);
+        @include police($family: "Shrikhand", $familysuite: cursive, $weight: 400, $style: italic, $size: 27.5, $lineheight: 40.82);
     }
     .menu__titre{
         text-transform: uppercase;
-        @include police($weight: 300, $size: 16px, $lineheight: 18.75px);
+        @include police($weight: 300, $size: 16, $lineheight: 18.75);
     }
     .choix{
         &__titre{
-            @include police($weight: 500, $size: 18px, $lineheight: 21.09px);
+            width: 100%;
+            @include police($weight: 500, $size: 18, $lineheight: 21.09);
         }
         &__description{
-            @include police($weight: 300, $size: 15.04px, $lineheight: 17.63px);
+            @include police($weight: 300, $size: 15.04, $lineheight: 17.63);
         }
         &__prix{
-            @include police($weight: 700, $size: 15.04px, $lineheight: 17.63px);
+            @include police($weight: 700, $size: 15.04, $lineheight: 17.63);
         }
     } 
 }

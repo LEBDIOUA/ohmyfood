@@ -13,3 +13,14 @@ $padding: 30px;
 $notchange: false;
 $element: null;
 $survol: false;
+
+
+// $breakpoints: (
+//   'medium': (min-width: 768px),
+//   'large': (min-width: 1024px),
+// );
+// $minSmall: "screen and (min-width: #{$size})";
+// $maxSmall: "screen and (min-width: 768px)";
+$erreur: "screen and (max-width: 374.99px)";
+$medium: "screen and (min-width: 768px)";
+$large: "screen and (min-width: 1024px)";

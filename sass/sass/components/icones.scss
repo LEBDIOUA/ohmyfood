@@ -54,12 +54,10 @@
 .fonctionnement{
     &__btn{
         &numbers{
-            @include size($width: 24px, $height: 24px);
             border: 1px solid $violet;
-            @include radius($val: 12px); /*border-radius: 12px 12px;*/
-            @include flexbox($centrer: true, $important: true);
-            @include bgcolor($violet, $element: "iconnumber");
-            @include police($family: "Roboto", $familysuite: sans-serif, $size: 14.18px, $lineheight: 16.62px);
+            @include radius($radius: 12px); /*border-radius: 12px 12px;*/
+            @include box($centrer: center, $important: true, $bgcolor: $violet, $element: "iconnumber", $width: 24px, $height: 24px);
+            @include police($family: "Roboto", $familysuite: sans-serif, $size: 14.18, $lineheight: 16.62);
             transform: translate(-10px);
         }
     }
