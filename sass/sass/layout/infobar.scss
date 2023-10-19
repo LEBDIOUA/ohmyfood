@@ -1,7 +1,0 @@
-.infobar{
-    @include box($direction: column, $gap: 25px, $centrer: center, $bgcolor: $bg-color, $paddingtop: calc($padding + 15px), $paddingright: $padding, $paddingbottom: calc($padding + 15px), $paddingleft: $padding, $width: 100%);
-    text-align: center;
-    &__titre{
-        align-self: center;
-        }
-}

@@ -1,0 +1,118 @@
+%btn{
+    @include box($direction : row, $gap: 20px, $bgcolor: $principal-font, $element: "linearbtn", $width: 89.33%, $maxwidth: 375px, $height: 72.38px);
+    @include police($weight: 500, $size: 16, $lineheight: 18.75);
+    @include radius(25px);
+    @include shadow($right: 4px, $bottom: 15px, $colorshadow: $shadow);
+    transition: background-color 1s linear, box-shadow 1s linear;
+    &:hover{
+        background-color: lighten($principal-font, 1%);
+        @include shadow($right: 4px, $bottom: 15px, $colorshadow: $shadowfonce);
+    }
+
+    @media #{$medium}{
+        @include size($width: 30%, $maxwidth: 335px, $height: 72.38px);
+    }
+}
+%checked{
+    .conteneur__choix--check{
+        @include bgcolor($bgcolor: $txt-font-sombre, $element: "iconcheck");
+        width: 59px;
+        height: inherit;
+    }
+    .conteneur__choix--description, .conteneur__choix--description div{
+        width: calc(100% - 59px);
+    }
+}
+.infobar{
+    &__btn--explorer{
+        @include radius(25px);
+        @include box($centrer: center, $width: 218px, $height: 50px);
+        @extend %btn;
+    }
+}
+.fonctionnement{
+    &__btn{
+        @extend %btn;
+        @include box($centrer: flex-start, $bgcolor: $principal-font);
+        
+        &:hover, &:focus{
+            .fonctionnement__icons{
+                color: $violet;
+                transition: color 1s linear;
+            }
+        }   
+    }
+    
+}
+.menu{
+    &__cmd{
+        @extend %btn;
+        @include box($centrer: center, $width: 156px, $height: 50px);
+    }
+}
+.conteneur__choix{
+    @include box($direction : row, $gap: 5px, $bgcolor: $txt-font-sombre, $width: 349px);  
+    @include radius(15.04px);
+    @extend %btn;
+    position: relative;
+    &--description{
+        @include box($direction : row, $gap: 5px, $centrer: center);
+        justify-content: space-between;
+        width: 100%;
+        transition: width 1s linear;
+        div{
+            width: 100%;
+        }
+    }
+    @media #{$medium}{
+        width: 100%;
+        max-width: 634px;
+    }
+    input[type="checkbox"] + label{
+        position: absolute;
+    }
+    label{
+        @include box($direction : row, $gap: 5px, $padding: 15px, $width: 100%, $height: inherit);
+    }
+    input[type="checkbox"]{
+        visibility: hidden;
+    }
+    input[type="checkbox"]:checked + label{
+        @extend %checked;
+    }
+    &--check{
+        @include box($centrer: center, $important: true, $bgcolor: transparent, $element: "iconcheck", $width: 0px, $height: inherit);
+        @include radius($top: 0px, $right: 15px, $bottom: 15px, $left: 0px);
+        position: absolute;
+        right: 0px;
+        transition: width 1s linear, background-color 1s linear;
+    }
+    &:hover, &:focus, &:active{
+        @extend %checked;
+    } 
+}
+.card__heart{
+    @include size($width: 22px, $height: 22px);
+    cursor: pointer;
+    position: relative;
+    input[type="checkbox"] + label{
+        position: absolute;
+    }
+    label{
+        left: -2px;
+    }
+    input[type="checkbox"]{
+        visibility: hidden;
+    }
+    input[type="checkbox"]:checked + label{
+        .fa-heart{
+            @include bgcolor($bgcolor: $violet, $element: "coeurplein");
+        }
+    }
+    &:hover, &:focus, &:active{
+        .fa-heart{
+            @include bgcolor($bgcolor: $violet, $element: "coeurplein");
+            transition: background-image 2s, color 2s, -webkit-text-stroke 2s; 
+        }
+    }
+}

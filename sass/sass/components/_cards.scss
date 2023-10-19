@@ -1,22 +1,28 @@
 .card{    
-    @include box($direction : column, $centrer: center, $bgcolor: $blanc, $width: 100%);
+    @include box($direction : column, $centrer: center, $bgcolor: $txt-font-sombre, $width: 100%);
     @include radius(15px);
     position: relative;
 
     &__lien{
         @include bgcolor();
-        @include size($width: 340px);
+        @include size($width: 100%, $maxwidth: 340px);
+
+        transition: box-shadow 1s linear;
 
         @media #{$medium}{
-            @include size($width: 44%);
+            @include size($width: 44%, $maxwidth: 490px);
         }
         @include radius(15px);
-        @include shadow($right: 4px, $bottom: 15px, $colorshadow: rgba(0, 0, 0, 0.1));  
+        @include shadow($right: 4px, $bottom: 15px, $colorshadow: $shadow);  
         &:nth-child(n+4){
             .card__nouveau{
                display: none; 
             }
         }
+        &:hover{
+            @include shadow($right: 4px, $bottom: 15px, $colorshadow: $shadowfonce);
+        }
+    
     }
     &__img{
         @include size($width: 100%, $height: 190px);
@@ -27,7 +33,7 @@
         }
     }
     &__nouveau{
-        @include box($paddingtop: calc($padding / 8), $paddingright: calc($padding / 4), $paddingbottom: calc($padding / 8), $paddingleft: calc($padding / 4), $bgcolor: $vert, $element: "new", $width: fit-content);
+        @include box($paddingtop: calc($padding / 8), $paddingright: calc($padding / 4), $paddingbottom: calc($padding / 8), $paddingleft: calc($padding / 4), $bgcolor: $new-txt, $element: "new", $width: fit-content);
         position: absolute;
         left: 75%;
         top: 5%;

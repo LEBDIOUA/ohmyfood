@@ -30,66 +30,140 @@
                 <div class="menu">
                     <section class="restaurant__titre">
                         <h1 class="restaurant__nom">Le délice des sens</h1>
-                        <button class="heart">
-                            <i class="fa-solid fa-heart"></i>
-                            <i class="fa-regular fa-heart"></i>
-                        </button>
+                        <div class="card__heart">
+                            <input type="checkbox" id="coeur1"/>
+                            <label for="coeur1">
+                                <i class="fa-solid fa-heart"></i>
+                            </label>
+                        </div>
                     </section>
                     <section class="menu__entrees menu__complet">
                         <h2 class="menu__titre">Entrées</h2>
-                        <div class="choix">
-                            <h3 class="choix__titre">Tartare de thon</h3>
-                            <p class="choix__description">Assaisonné au yuzu</p>
-                            <p class="choix__prix">25€</p>
+                        <div class="conteneur__choix">
+                            <input type="checkbox" id="entree1"/>
+                            <label for="entree1">
+                                <div class="conteneur__choix--description">
+                                    <div>
+                                        <h3 class="choix__titre">Tartare de thon</h3>
+                                        <p class="choix__description">Assaisonné au yuzu</p>
+                                    </div>
+                                    <p class="choix__prix">25€</p>
+                                </div>
+                                <i class="fa-solid fa-circle-check conteneur__choix--check"></i>
+                            </label>
                         </div>
-                        <div class="choix">
-                            <h3 class="choix__titre">Bouchée de homard croustillant</h3>
-                            <p class="choix__description">Et sa farandole de petits légumes</p>
-                            <p class="choix__prix">35€</p>
+                        <div class="conteneur__choix">
+                            <input type="checkbox" id="entree2"/>
+                            <label for="entree2">
+                                <div class="conteneur__choix--description">
+                                    <div>
+                                        <h3 class="choix__titre">Bouchée de homard croustillant</h3>
+                                        <p class="choix__description">Et sa farandole de petits légumes</p>
+                                    </div>
+                                    <p class="choix__prix">35€</p>
+                                </div>
+                                <i class="fa-solid fa-circle-check conteneur__choix--check"></i>
+                            </label>    
                         </div>
-                        <div class="choix">
-                            <h3 class="choix__titre">Velouté de cèpes</h3>
-                            <p class="choix__description">Aux truffes</p>
-                            <p class="choix__prix">20€</p>
+                        <div class="conteneur__choix">
+                            <input type="checkbox" id="entree3"/>
+                            <label for="entree3">
+                                <div class="conteneur__choix--description">
+                                    <div>
+                                        <h3 class="choix__titre">Velouté de cèpes</h3>
+                                        <p class="choix__description">Aux truffes</p>
+                                    </div>
+                                    <p class="choix__prix">20€</p>
+                                </div>
+                                <i class="fa-solid fa-circle-check conteneur__choix--check"></i>
+                            </label>    
                         </div>
                     </section>
                     <section class="menu__plats menu__complet">
                         <h2 class="menu__titre">Plats</h2>
-                        <div class="choix">
-                            <h3 class="choix__titre">Poulet rôti aux herbes de Provence</h3>
-                            <p class="choix__description">Et sa crème de truffe</p>
-                            <p class="choix__prix">40€</p>
+                        <div class="conteneur__choix">
+                            <input type="checkbox" id="plat1"/>
+                            <label for="plat1">
+                                <div class="conteneur__choix--description">
+                                    <div>
+                                        <h3 class="choix__titre">Poulet rôti aux herbes de Provence</h3>
+                                        <p class="choix__description">Et sa crème de truffe</p>
+                                    </div>
+                                    <p class="choix__prix">40€</p>
+                                </div>
+                                <i class="fa-solid fa-circle-check conteneur__choix--check"></i>
+                            </label>
                         </div>
-                        <div class="choix">
-                            <h3 class="choix__titre">Langouste rôtie</h3>
-                            <p class="choix__description">Et ses légumes de saison</p>
-                            <p class="choix__prix">35€</p>
+                        <div class="conteneur__choix">
+                            <input type="checkbox" id="plat2"/>
+                            <label for="plat2">
+                                <div class="conteneur__choix--description">
+                                    <div>
+                                        <h3 class="choix__titre">Langouste rôtie</h3>
+                                        <p class="choix__description">Et ses légumes de saison</p>
+                                    </div>
+                                    <p class="choix__prix">35€</p>
+                                </div>
+                                <i class="fa-solid fa-circle-check conteneur__choix--check"></i>
+                            </label>
                         </div>
-                        <div class="choix">
-                            <h3 class="choix__titre">Côte de bœuf Angus</h3>
-                            <p class="choix__description">Et sa purée de panais</p>
-                            <p class="choix__prix">44€</p>
+                        <div class="conteneur__choix">
+                            <input type="checkbox" id="plat3"/>
+                            <label for="plat3">
+                                <div class="conteneur__choix--description">
+                                    <div>
+                                        <h3 class="choix__titre">Côte de bœuf Angus</h3>
+                                        <p class="choix__description">Et sa purée de panais</p>
+                                    </div>
+                                    <p class="choix__prix">44€</p>
+                                </div>
+                                <i class="fa-solid fa-circle-check conteneur__choix--check"></i>
+                            </label>
                         </div>
                     </section>
                     <section class="menu__desserts menu__complet">
                         <h2 class="menu__titre">Desserts</h2>
-                        <div class="choix">
-                            <h3 class="choix__titre">Farandole de desserts</h3>
-                            <p class="choix__description">Du chef</p>
-                            <p class="choix__prix">18€</p>
+                        <div class="conteneur__choix">
+                            <input type="checkbox" id="dessert1"/>
+                            <label for="dessert1">
+                                <div class="conteneur__choix--description">
+                                    <div>
+                                        <h3 class="choix__titre">Farandole de desserts</h3>
+                                        <p class="choix__description">Du chef</p>
+                                    </div>
+                                    <p class="choix__prix">18€</p>
+                                </div>
+                                <i class="fa-solid fa-circle-check conteneur__choix--check"></i>
+                            </label>
                         </div>
-                        <div class="choix">
-                            <h3 class="choix__titre">Crème brulée</h3>
-                            <p class="choix__description">Revisitée</p>
-                            <p class="choix__prix">22€</p>
+                        <div class="conteneur__choix">
+                            <input type="checkbox" id="dessert2"/>
+                            <label for="dessert2">
+                                <div class="conteneur__choix--description">
+                                    <div>
+                                        <h3 class="choix__titre">Crème brulée</h3>
+                                        <p class="choix__description">Revisitée</p>
+                                    </div>
+                                    <p class="choix__prix">22€</p>
+                                </div>
+                                <i class="fa-solid fa-circle-check conteneur__choix--check"></i>
+                            </label>
                         </div>
-                        <div class="choix">
-                            <h3 class="choix__titre">Tiramisu</h3>
-                            <p class="choix__description">À la noisette</p>
-                            <p class="choix__prix">23€</p>
+                        <div class="conteneur__choix">
+                            <input type="checkbox" id="dessert3"/>
+                            <label for="dessert3">
+                                <div class="conteneur__choix--description">
+                                    <div>
+                                        <h3 class="choix__titre">Tiramisu</h3>
+                                        <p class="choix__description">À la noisette</p>
+                                    </div>
+                                    <p class="choix__prix">23€</p>
+                                </div>
+                                <i class="fa-solid fa-circle-check conteneur__choix--check"></i>
+                            </label>
                         </div>
                     </section>
-                    <button class="menu__cmd">Commander</button>
+                    <div class="menu__cmd">Commander</div>
                 </div>
             </main>
             <footer class="footer">

@@ -5,6 +5,7 @@
     @include size($width: $width, $maxwidth: $maxwidth, $height: $height, $maxheight: $maxheight);
     @include padding($padding: $padding, $top: $paddingtop, $right: $paddingright, $bottom: $paddingbottom, $left: $paddingleft);
     @include bgcolor($bgcolor: $bgcolor, $element: $element);
+
 }
 
 @mixin flexbox($direction : null, $gap: null, $wrap: null, $centrer: null, $important: false){
@@ -44,7 +45,7 @@
         border-radius: $top $right $bottom $left;
     } 
 }
-@mixin shadow($shadow: 0, $top: 0px, $right: 0px, $bottom: 0px, $left: 0px, $colorshadow: rgba(0, 0, 0, 0.15)){
+@mixin shadow($shadow: 0, $top: 0px, $right: 0px, $bottom: 0px, $left: 0px, $colorshadow: $shadow){
     @if ($shadow != 0){
         box-shadow: $shadow;
     }
@@ -52,38 +53,47 @@
         box-shadow: $top $right $bottom $left $colorshadow;
     }
 }
-@mixin bgcolor($bgcolor: $blanc, $element: null){  
+@mixin bgcolor($bgcolor: $txt-font-sombre, $element: null){  
     @if ($bgcolor != null){
         @if ($element == "footer"){
             background: $bgcolor; 
-            color: $blanc;
-            *{color: $blanc;}
+            color: $txt-font-sombre;
+            *{color: $txt-font-sombre;}
         }
-        @else if ($element == "iconheart"){
-            background: linear-gradient(360deg, $violet -11.44%, $rose 123.93%);  
+        @else if ($element == "coeurplein"){
+            background: linear-gradient(360deg, $violet -11.44%, $rose 123.93%);
             -webkit-background-clip: text; 
-            background-clip: text;
             color: transparent;
+            -webkit-text-stroke: transparent;
+        }
+        @else if ($element == "coeurvide"){
+            background: transparent;
+            color: $txt-font-sombre;
+            -webkit-text-stroke: 2px $violet;
+        }
+        @else if ($element == "iconcheck"){
+            color: $bgcolor;
+            background-color: $barre;
         }
         @else if ($element == "iconnumber"){
             background: $bgcolor;
-            color: $blanc;
+            color: $txt-font-sombre;
         }
         @else if ($element == "linearbtn"){
             background: linear-gradient(360deg, $violet -11.44%, $rose 123.93%);
-            color: $blanc;
+            color: $txt-font-sombre;
         }    
         @else if ($element == "localisation"){
             background: $bgcolor;
-            *{color: $grisfonce;}
+            *{color: $secondaire-font;}
         }
         @else if ($element == "new"){
             background: $bgcolor;
-            color: $vertfonce;
+            color: $new-font;
         }
         @else{
             background: $bgcolor; 
-            color: $noir;
+            color: $txt-font-clair;
         }
     }
 }
@@ -159,4 +169,22 @@
       @error 'No value found for `#{$breakpoint}`. '
            + 'Please make sure it is defined in `$breakpoints` map.';
     }
-  }
+}
+
+// @mixin chargement(){
+//     @for $i from 1 to 21{
+//         $x: calc(10*#{$i});
+//         $rest: modulo($i , 2) !default;
+//         margin: 0px #{$x}+px;
+//         @if ($rest==0){
+//             .triangle{
+//                 transform: scaleY(95px);
+//             }
+//         }
+//         @else{
+//             .triangle{
+//                 transform: scaleY(0px);
+//             }
+//         }
+//     }
+// }

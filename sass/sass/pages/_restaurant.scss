@@ -1,6 +1,5 @@
 .restaurant{
     main{
-        position: relative;
         height: auto;
     }
     &__img{
@@ -19,7 +18,7 @@
         }
     }
     .menu{
-        @include box($direction: column, $gap:40px, $centrer: center, $bgcolor: $bg-color, $paddingtop: 30px, $paddingright: 10px, $paddingbottom: 30px, $paddingleft: 10px, $width: 100%);
+        @include box($direction: column, $gap:40px, $centrer: center, $bgcolor: $principal-font, $paddingtop: 30px, $paddingright: 10px, $paddingbottom: 30px, $paddingleft: 10px, $width: 100%);
         @include radius($top: 30px, $right: 30px, $bottom: 0px, $left: 0px);
         margin: 0 auto;
         @media #{$medium}{
@@ -35,7 +34,7 @@
         &__titre{
             @include size($width: fit-content);
             @include padding($top: 0px, $right: 0px, $bottom: 5px, $left: 0px);
-            background-image: linear-gradient(to right, rgba(153, 226, 208, 1) 40px, transparent 0px);
+            background-image: linear-gradient(to right, $barre 40px, transparent 0px);
             background-position: 0 100%;
             background-repeat: no-repeat; 
             background-size: 100% 3px;

@@ -1,0 +1,4 @@
+.footer{    
+    @include padding($padding: $padding);
+    @include bgcolor($bgcolor: $secondaire-font, $element: "footer"); 
+}

@@ -1,0 +1,64 @@
+body{
+    @include size($width: 100%, $maxwidth: 1440px);
+    min-width: 320px;
+    @include police();
+    .erreur{
+        display: none;
+    }
+    @media #{$erreur}{
+        background-color: rgba($color: #000000, $alpha: 1.0);
+        .index{
+            display: none;
+        }
+        .erreur{
+            @include flexbox($direction: column, $gap: 50px, $centrer: true);
+            @include size($width:100%, $height: 70%);
+            @include padding(30px,0px,30px,0px);
+            margin: 50% 0;
+            *{
+                color: $txt-font-sombre;
+            }
+            .fa-bug{
+                color: rgba($color: red, $alpha: 1.0);
+                font-size: 50px;
+                animation: buging .5s infinite ease;
+                @keyframes buging {
+                    $val: 10px;
+                    $list: (0%, 100%);
+                    @each $element in $list{
+                        #{$element}{
+                            font-size: $val;
+                        }
+                        $val: $val + 90;
+                    }
+                }
+            }
+        }
+    }
+}
+.container{
+   @include size($width: 100%);
+    main{
+        @include box($direction : column, $gap: 20px, $width: 100%);
+    }
+}
+.fonctionnement{
+    @include box($direction : column, $gap: 25px, $centrer: center, $paddingtop: $padding, $paddingright: calc($padding / 2), $paddingbottom: calc($padding + 30px), $paddingleft: calc($padding / 2), $width: 100%, $height: auto);
+    @media #{$medium}{
+        @include box($direction: row, $gap: 25px, $wrap: wrap, $paddingtop: calc($padding + 20px), $paddingright: 12.5%, $paddingbottom: calc($padding + 20px), $paddingleft: 12.5%);
+    }
+}
+.restaurants{
+    @include box($direction : column, $gap: 15px, $centrer: center, $paddingtop: $padding, $paddingright: calc($padding / 2), $paddingbottom: calc($padding + 30px), $paddingleft: calc($padding / 2), $bgcolor: $principal-font, $width: 100%, $height: auto);
+    @media #{$medium}{
+        @include box($direction: row, $gap: 50px, $wrap: wrap, $paddingtop: calc($padding + 20px), $paddingright: 12.5%, $paddingbottom: calc($padding + 20px), $paddingleft: 12.5%);
+    }
+}footer{
+    @include box($direction : column, $gap: 20px, $centrer: false, $padding: $padding, $bgcolor: $principal-font, $width: 100%);
+    @media #{$medium}{
+        @include box($direction: row-reverse, $gap: 16px, $paddingtop: calc($padding + 20px), $paddingright: 12.5%, $paddingbottom: calc($padding + 20px), $paddingleft: 12.5%);
+    }
+}
+img{
+    object-fit: cover;
+}

@@ -1,0 +1,23 @@
+.fa-heart{
+    @include bgcolor($bgcolor: $txt-font-clair, $element: "coeurvide");
+}
+.fa-circle-check{
+    @include bgcolor($bgcolor: transparent, $element: "iconcheck");
+}
+.fonctionnement__icons, .fa-heart, .fa-arrow-left{
+    font-size: 22px;
+}
+.fonctionnement__icons{
+    color: $icon;
+}
+.fonctionnement{
+    &__btn{
+        &numbers{
+            border: 1px solid $violet;
+            @include radius($radius: 12px); /*border-radius: 12px 12px;*/
+            @include box($centrer: center, $important: true, $bgcolor: $violet, $element: "iconnumber", $width: 24px, $height: 24px);
+            @include police($family: "Roboto", $familysuite: sans-serif, $size: 14.18, $lineheight: 16.62);
+            transform: translate(-10px);
+        }
+    }
+}

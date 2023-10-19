@@ -1,0 +1,141 @@
+body{
+    position: relative;
+    @include box($centrer: center, $width: 100%, $height: 100%);
+}
+.container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.index{
+    animation: chargement 1s linear 9s reverse forwards;
+    opacity: 0.1;
+    z-index: 0;
+    height: inherit;
+    overflow: hidden;
+}
+.chargement{
+    position: relative;
+    @include box($centrer: center, $width: 250px, $height: 150px);
+    animation: chargement 1s linear 9s forwards;  
+    opacity: 1;
+}
+@keyframes chargement {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+.tajine{
+    position: absolute;
+    @include box($width: 50%, $height: 50%);
+}
+.ferme{
+    animation: secouer .5s 2,  remplir reverse 1s ease 1s forwards 8;
+}
+.ouvert{
+    opacity: 0;
+    //animation: remplir .1s ease 2s forwards, grandir 1s 10;
+    animation: remplir 1s ease 1s forwards 8;
+}   
+#gradientName stop:first-child{
+    stop-color: $violet;
+}
+#gradientName stop{
+    stop-color: $new-font;
+}
+#gradientName stop:nth-child(3){
+    stop-color: $new-txt;
+}
+#gradientName stop:last-child{
+    stop-color: $rose;
+}
+@keyframes remplir {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes secouer {
+    0%{
+        transform: translate(0px, 0px);
+    }
+    25%{
+        transform: translate(10px, 10px);
+    }
+    50%{
+        transform: translate(20px, 0px);
+    }
+    75%{
+        transform: translate(10px, 10px);
+    }
+    100%{
+        transform: translate(0px, 0px);
+    }
+}
+@keyframes grandir {
+    0%{
+        transform: scale(0.6);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.lettre{
+    position: relative;
+    @include police($family: "Shrikhand", $familysuite: cursive, $weight: 400, $style: italic, $size: 30, $lineheight: 43.74);
+    @include bgcolor($bgcolor: $txt-font-sombre, $element: "coeurplein");  
+    padding: 0px 10px;
+    text-transform: lowercase;
+    transform: translatey(-1000px);
+}
+.element1{
+    top: 30px;
+    left: 55px;
+}
+.element2{
+    top: -5px;
+    left: 20px;
+}
+.element3{
+    top: -35px;
+    left: 0px;
+}
+.element4{
+    top: -60px;
+    left: -10px;
+}
+.element5{
+    top: -60px;
+    left: -5px;
+}
+.element6{
+    top: -35px;
+    left: -20px;
+}
+.element7{
+    top: -5px;
+    left: -35px;
+}
+.element8{
+    top: 30px;
+    left: -70px;
+}
+@for $i from 1 to 9{
+    .element#{$i}{
+        animation: logo#{$i} 1s $i+0.5s forwards;
+    }
+    @keyframes logo#{$i}{
+        0%{
+            transform: translatey(0px);
+        }
+        100%{
+            transform: translatey(0px);
+        }
+}
+}

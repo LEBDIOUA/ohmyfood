@@ -3,19 +3,20 @@ header{
     .header{
         @include box($direction: row, $centrer: center, $paddingtop: 0, $paddingright: 20, $paddingbottom: 0, $paddingleft: 20, $width: 100%, $height: 63px);
         justify-content: flex-start;
-        @include shadow($right: 2px, $bottom: 4px);
+        @include shadow($right: 2px, $bottom: 4px, $colorshadow: $shadow);
         z-index: 1;
         &__navbar{
             //display: inline;
             .fa-arrow-left{
-                color: $grisfonce;
+                color: $secondaire-font;
+                transition: opacity 1s linear;
                 &:hover{
                     opacity:.6;
                 }
             }
         }
         &__localisation{
-            @include box($direction: row, $gap: 17px, $centrer: center, $bgcolor: $localisation-color, $element: "localisation", $width: 100%, $height: 50px);
+            @include box($direction: row, $gap: 17px, $centrer: center, $bgcolor: $localisation-font, $element: "localisation", $width: 100%, $height: 50px);
             @include police($weight: 500, $size: 16, $lineheight: 18.75);
         }
     }

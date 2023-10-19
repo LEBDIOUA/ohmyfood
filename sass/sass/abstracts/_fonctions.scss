@@ -6,4 +6,9 @@
         @return $noir;
     }
 }
-
+@function modulo($number, $divisor) {
+    @while $number >= $divisor {
+        $number: $number - $divisor;
+    }
+    @return $number;
+}

@@ -15,7 +15,7 @@ header{
 }
 .infobar{ 
     &__description{
-        color: $grisfonce;
+        color: $secondaire-font;
         @include police($size: 18, $lineheight: 21.09);
     }
 }
@@ -51,6 +51,7 @@ header{
         &__titre{
             width: 100%;
             @include police($weight: 500, $size: 18, $lineheight: 21.09);
+            text-align: start;
         }
         &__description{
             @include police($weight: 300, $size: 15.04, $lineheight: 17.63);
@@ -59,4 +60,9 @@ header{
             @include police($weight: 700, $size: 15.04, $lineheight: 17.63);
         }
     } 
+}
+.choix__titre, .choix__description{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
