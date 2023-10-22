@@ -19,7 +19,7 @@
         width: 59px;
         height: inherit;
     }
-    .conteneur__choix--description, .conteneur__choix--description div{
+    .conteneur__choix--description{
         width: calc(100% - 59px);
     }
 }
@@ -48,20 +48,20 @@
     &__cmd{
         @extend %btn;
         @include box($centrer: center, $width: 156px, $height: 50px);
+        cursor: pointer;
     }
 }
 .conteneur__choix{
-    @include box($direction : row, $gap: 5px, $bgcolor: $txt-font-sombre, $width: 349px);  
+    @include box($direction : row, $gap: 5px, $centrer: center, $bgcolor: $txt-font-sombre, $width: 100%);  
     @include radius(15.04px);
     @extend %btn;
     position: relative;
     &--description{
-        @include box($direction : row, $gap: 5px, $centrer: center);
+        @include box($direction : row, $gap: 5px, $centrer: center, $width: 100%);
         justify-content: space-between;
-        width: 100%;
         transition: width 1s linear;
-        div{
-            width: 100%;
+        div:nth-child(1){
+            width: 90%;
         }
     }
     @media #{$medium}{

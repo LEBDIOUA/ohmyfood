@@ -183,7 +183,7 @@ a {
   width: 59px;
   height: inherit;
 }
-.conteneur__choix:hover .conteneur__choix--description, .conteneur__choix:focus .conteneur__choix--description, .conteneur__choix:active .conteneur__choix--description, .conteneur__choix input[type=checkbox]:checked + label .conteneur__choix--description, .conteneur__choix:hover .conteneur__choix--description div, .conteneur__choix:focus .conteneur__choix--description div, .conteneur__choix:active .conteneur__choix--description div, .conteneur__choix input[type=checkbox]:checked + label .conteneur__choix--description div {
+.conteneur__choix:hover .conteneur__choix--description, .conteneur__choix:focus .conteneur__choix--description, .conteneur__choix:active .conteneur__choix--description, .conteneur__choix input[type=checkbox]:checked + label .conteneur__choix--description {
   width: calc(100% - 59px);
 }
 
@@ -216,13 +216,17 @@ a {
   align-self: center;
   width: 156px;
   height: 50px;
+  cursor: pointer;
 }
 
 .conteneur__choix {
   display: flex;
   flex-direction: row;
   gap: 5px;
-  width: 349px;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  width: 100%;
   background: white;
   color: black;
   border-radius: 15.04px;
@@ -235,12 +239,12 @@ a {
   justify-content: center;
   align-items: center;
   align-self: center;
-  justify-content: space-between;
   width: 100%;
+  justify-content: space-between;
   transition: width 1s linear;
 }
-.conteneur__choix--description div {
-  width: 100%;
+.conteneur__choix--description div:nth-child(1) {
+  width: 90%;
 }
 @media screen and (min-width: 768px) {
   .conteneur__choix {
@@ -312,33 +316,33 @@ a {
   align-items: center;
   align-self: center;
   width: 100%;
-  background: white;
-  color: black;
-  border-radius: 15px;
-  position: relative;
-}
-.card__lien {
-  background: white;
-  color: black;
-  width: 100%;
-  height: auto;
   max-width: 340px;
-  transition: box-shadow 1s linear;
+  background: white;
+  color: black;
   border-radius: 15px;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: box-shadow 1s linear;
 }
 @media screen and (min-width: 768px) {
-  .card__lien {
+  .card {
     width: 44%;
     height: auto;
     max-width: 490px;
   }
 }
-.card__lien:nth-child(n+4) .card__nouveau {
+.card:nth-child(n+4) .card__nouveau {
   display: none;
 }
-.card__lien:hover {
+.card:hover {
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.5);
+}
+.card * {
+  cursor: pointer;
+}
+.card__lien {
+  width: 100%;
+  height: auto;
 }
 .card__img {
   width: 100%;
@@ -725,7 +729,6 @@ body {
   animation: chargement 1s linear 9s reverse forwards;
   opacity: 0.1;
   z-index: 0;
-  height: inherit;
   overflow: hidden;
 }
 
@@ -744,9 +747,11 @@ body {
 @keyframes chargement {
   0% {
     opacity: 1;
+    overflow: visible;
   }
   100% {
     opacity: 0;
+    overflow: hidden;
   }
 }
 .tajine {
