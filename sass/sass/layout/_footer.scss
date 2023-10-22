@@ -1,4 +1,20 @@
-.footer{    
-    @include padding($padding: $padding);
-    @include bgcolor($bgcolor: $secondaire-font, $element: "footer"); 
+.footer{ 
+    @include box($direction: column, $gap: 10px, $padding: 30px, $bgcolor: $secondaire-font, $element: "footer"); 
+    @media #{$medium}{
+        @include box($direction: row-reverse, $gap: 16px, $bgcolor: $secondaire-font, $element: "footer"); 
+        align-items: center;
+    }
+    &__navigation{
+        @include box($direction: column, $gap: 10px, $paddingtop: 0px, $paddingright: 0px, $paddingbottom: 0px, $paddingleft: 0px);
+        @media #{$medium}{
+            @include box($direction: row-reverse, $gap: 16px, $bgcolor: $secondaire-font, $element: "footer"); 
+        }
+        li{
+            @include police($weight: 500, $size: 16, $lineheight: 18.75);
+            @include flexbox($direction: row, $gap: 10px);
+            a{
+                @include flexbox($direction: row, $gap: 10px);
+            }
+        }
+    }
 }

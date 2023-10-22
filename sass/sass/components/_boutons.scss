@@ -60,7 +60,7 @@
         @include box($direction : row, $gap: 5px, $centrer: center, $width: 100%);
         justify-content: space-between;
         transition: width 1s linear;
-        div:nth-child(1){
+        span:first-child{
             width: 90%;
         }
     }
