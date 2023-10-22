@@ -7,7 +7,7 @@
     &__navigation{
         @include box($direction: column, $gap: 10px, $paddingtop: 0px, $paddingright: 0px, $paddingbottom: 0px, $paddingleft: 0px);
         @media #{$medium}{
-            @include box($direction: row-reverse, $gap: 16px, $bgcolor: $secondaire-font, $element: "footer"); 
+            @include box($direction: row, $gap: 16px, $bgcolor: $secondaire-font, $element: "footer"); 
         }
         li{
             @include police($weight: 500, $size: 16, $lineheight: 18.75);
