@@ -180,13 +180,13 @@ span {
   }
 }
 
-.conteneur__choix:hover .conteneur__choix--check, .conteneur__choix:focus .conteneur__choix--check, .conteneur__choix:active .conteneur__choix--check, .conteneur__choix input[type=checkbox]:checked + label .conteneur__choix--check {
+.conteneur__choix:hover .conteneur__choix--check, .conteneur__choix:focus .conteneur__choix--check, .conteneur__choix:active .conteneur__choix--check {
   color: white;
   background-color: rgb(153, 226, 208);
   width: 59px;
   height: inherit;
 }
-.conteneur__choix:hover .conteneur__choix--description, .conteneur__choix:focus .conteneur__choix--description, .conteneur__choix:active .conteneur__choix--description, .conteneur__choix input[type=checkbox]:checked + label .conteneur__choix--description {
+.conteneur__choix:hover .conteneur__choix--description, .conteneur__choix:focus .conteneur__choix--description, .conteneur__choix:active .conteneur__choix--description, .conteneur__choix:hover .conteneur__choix--description div, .conteneur__choix:focus .conteneur__choix--description div, .conteneur__choix:active .conteneur__choix--description div {
   width: calc(100% - 59px);
 }
 
@@ -226,10 +226,10 @@ span {
   display: flex;
   flex-direction: row;
   gap: 5px;
-  justify-content: center;
   align-items: center;
   align-self: center;
   width: 100%;
+  padding: 10px 10px;
   background: white;
   color: black;
   border-radius: 15.04px;
@@ -238,7 +238,7 @@ span {
 .conteneur__choix--description {
   display: flex;
   flex-direction: row;
-  gap: 5px;
+  gap: 10px;
   justify-content: center;
   align-items: center;
   align-self: center;
@@ -246,28 +246,11 @@ span {
   justify-content: space-between;
   transition: width 1s linear;
 }
-.conteneur__choix--description span:first-child {
-  width: 90%;
-}
 @media screen and (min-width: 768px) {
   .conteneur__choix {
     width: 100%;
     max-width: 634px;
   }
-}
-.conteneur__choix input[type=checkbox] + label {
-  position: absolute;
-}
-.conteneur__choix label {
-  display: flex;
-  flex-direction: row;
-  gap: 5px;
-  width: 100%;
-  height: inherit;
-  padding: 15px;
-}
-.conteneur__choix input[type=checkbox] {
-  visibility: hidden;
 }
 .conteneur__choix--check {
   display: flex !important;
@@ -283,28 +266,13 @@ span {
   right: 0px;
   transition: width 1s linear, background-color 1s linear;
 }
-.card__heart {
+.fa-heart {
   width: 22px;
   height: 22px;
   cursor: pointer;
   position: relative;
 }
-.card__heart input[type=checkbox] + label {
-  position: absolute;
-}
-.card__heart label {
-  left: -2px;
-}
-.card__heart input[type=checkbox] {
-  visibility: hidden;
-}
-.card__heart input[type=checkbox]:checked + label .fa-heart {
-  background: linear-gradient(360deg, #9356DC -11.44%, #FF79DA 123.93%);
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-stroke: transparent;
-}
-.card__heart:hover .fa-heart, .card__heart:focus .fa-heart, .card__heart:active .fa-heart {
+.fa-heart:hover, .fa-heart:focus, .fa-heart:active {
   background: linear-gradient(360deg, #9356DC -11.44%, #FF79DA 123.93%);
   -webkit-background-clip: text;
   color: transparent;

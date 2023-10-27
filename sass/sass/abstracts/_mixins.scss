@@ -1,14 +1,14 @@
 @import "./variables.scss";
 
-@mixin box($direction : null, $gap: null, $wrap: null, $centrer: null, $important: false, $padding: null, $paddingtop: null, $paddingright: null, $paddingbottom: null, $paddingleft: null, $bgcolor: null, $element: null, $width: null, $maxwidth: null, $height: null, $maxheight: null){
-    @include flexbox($direction : $direction, $gap: $gap, $wrap: $wrap, $centrer: $centrer, $important: $important);
+@mixin box($direction : null, $gap: null, $wrap: null, $centrer: null, $justify: true, $important: false, $padding: null, $paddingtop: null, $paddingright: null, $paddingbottom: null, $paddingleft: null, $bgcolor: null, $element: null, $width: null, $maxwidth: null, $height: null, $maxheight: null){
+    @include flexbox($direction : $direction, $gap: $gap, $wrap: $wrap, $centrer: $centrer, $justify: $justify, $important: $important);
     @include size($width: $width, $maxwidth: $maxwidth, $height: $height, $maxheight: $maxheight);
     @include padding($padding: $padding, $top: $paddingtop, $right: $paddingright, $bottom: $paddingbottom, $left: $paddingleft);
     @include bgcolor($bgcolor: $bgcolor, $element: $element);
 
 }
 
-@mixin flexbox($direction : null, $gap: null, $wrap: null, $centrer: null, $important: false){
+@mixin flexbox($direction : null, $gap: null, $wrap: null, $centrer: null, $justify: true, $important: false){
     @if $important {
         display: flex !important;
     }
@@ -28,9 +28,11 @@
         @if ($wrap == wrap){
             align-content: $centrer;
         }
-        justify-content: $centrer;
+        @if ($justify == true){
+            justify-content: $centrer;
+        }
         align-items: $centrer;
-        align-self: center;      
+        align-self: $centrer;      
     }
     @else if ($centrer == space-between or $centrer == flex-start){
         justify-content: $centrer;
@@ -152,39 +154,3 @@
         }
     }
 }
-@mixin respond-to($breakpoint) {
-    $raw-query: map-get($breakpoints, $breakpoint);
-  
-    @if $raw-query {
-      $query: if(
-        type-of($raw-query) == 'string',
-        unquote($raw-query),
-        inspect($raw-query)
-      );
-  
-      @media #{$query} {
-        @content;
-      }
-    } @else {
-      @error 'No value found for `#{$breakpoint}`. '
-           + 'Please make sure it is defined in `$breakpoints` map.';
-    }
-}
-
-// @mixin chargement(){
-//     @for $i from 1 to 21{
-//         $x: calc(10*#{$i});
-//         $rest: modulo($i , 2) !default;
-//         margin: 0px #{$x}+px;
-//         @if ($rest==0){
-//             .triangle{
-//                 transform: scaleY(95px);
-//             }
-//         }
-//         @else{
-//             .triangle{
-//                 transform: scaleY(0px);
-//             }
-//         }
-//     }
-// }

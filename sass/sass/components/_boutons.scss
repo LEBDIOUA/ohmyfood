@@ -19,7 +19,7 @@
         width: 59px;
         height: inherit;
     }
-    .conteneur__choix--description{
+    .conteneur__choix--description, .conteneur__choix--description div{
         width: calc(100% - 59px);
     }
 }
@@ -52,33 +52,18 @@
     }
 }
 .conteneur__choix{
-    @include box($direction : row, $gap: 5px, $centrer: center, $bgcolor: $txt-font-sombre, $width: 100%);  
+    @include box($direction : row, $gap: 5px, $centrer: center, $justify: false, $bgcolor: $txt-font-sombre, $width: 100%, $paddingright: 10px, $paddingleft: 10px);  
     @include radius(15.04px);
     @extend %btn;
     position: relative;
     &--description{
-        @include box($direction : row, $gap: 5px, $centrer: center, $width: 100%);
+        @include box($direction : row, $gap: 10px, $centrer: center, $width: 100%);
         justify-content: space-between;
         transition: width 1s linear;
-        span:first-child{
-            width: 90%;
-        }
     }
     @media #{$medium}{
         width: 100%;
         max-width: 634px;
-    }
-    input[type="checkbox"] + label{
-        position: absolute;
-    }
-    label{
-        @include box($direction : row, $gap: 5px, $padding: 15px, $width: 100%, $height: inherit);
-    }
-    input[type="checkbox"]{
-        visibility: hidden;
-    }
-    input[type="checkbox"]:checked + label{
-        @extend %checked;
     }
     &--check{
         @include box($centrer: center, $important: true, $bgcolor: transparent, $element: "iconcheck", $width: 0px, $height: inherit);
@@ -91,28 +76,12 @@
         @extend %checked;
     } 
 }
-.card__heart{
+.fa-heart{
     @include size($width: 22px, $height: 22px);
     cursor: pointer;
     position: relative;
-    input[type="checkbox"] + label{
-        position: absolute;
-    }
-    label{
-        left: -2px;
-    }
-    input[type="checkbox"]{
-        visibility: hidden;
-    }
-    input[type="checkbox"]:checked + label{
-        .fa-heart{
-            @include bgcolor($bgcolor: $violet, $element: "coeurplein");
-        }
-    }
     &:hover, &:focus, &:active{
-        .fa-heart{
-            @include bgcolor($bgcolor: $violet, $element: "coeurplein");
-            transition: background-image 2s, color 2s, -webkit-text-stroke 2s; 
-        }
+        @include bgcolor($bgcolor: $violet, $element: "coeurplein");
+        transition: background-image 2s, color 2s, -webkit-text-stroke 2s; 
     }
 }

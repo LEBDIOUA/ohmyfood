@@ -14,7 +14,7 @@
         
         @media #{$medium} {
             text-align: center;
-            @include flexbox($centrer: center, $gap: 15px);            
+            @include box($centrer: center, $gap: 15px);        
         }
     }
     .menu{
