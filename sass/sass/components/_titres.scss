@@ -58,10 +58,11 @@ header{
         }
         &__prix{
             @include police($weight: 700, $size: 15.04, $lineheight: 17.63);
+            display: block;
         }
     } 
 }
-.choix__titre, .choix__description{
+.choix__titre, .choix__description, .conteneur__choix--description div{
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
