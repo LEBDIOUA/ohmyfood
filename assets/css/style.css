@@ -697,13 +697,13 @@ body .index header .header__navbar {
   background-size: 100% 3px;
 }
 .restaurant .menu .menu__entrees {
-  animation: apparaitre 1s calc(0 * 1s) ease forwards;
+  animation: apparaitre 1s calc(0 * 0.2s) ease forwards;
 }
 .restaurant .menu .menu__plats {
-  animation: apparaitre 1s calc(1 * 1s) ease forwards;
+  animation: apparaitre 1s calc(1 * 0.2s) ease forwards;
 }
 .restaurant .menu .menu__desserts {
-  animation: apparaitre 1s calc(2 * 1s) ease forwards;
+  animation: apparaitre 1s calc(2 * 0.2s) ease forwards;
 }
 
 @keyframes apparaitre {

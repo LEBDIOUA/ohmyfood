@@ -44,7 +44,7 @@
         $menus: (0: entrees, 1: plats, 2: desserts);
         @each $i, $menu in $menus{
             .menu__#{$menu}{
-                animation: apparaitre 1s calc(#{$i}*1s) ease forwards;
+                animation: apparaitre 1s calc(#{$i}*0.2s) ease forwards;
             }
         }
     }
