@@ -487,9 +487,10 @@ header .header__logo {
   font-style: normal;
   font-size: 0.94em;
   line-height: 1.101875em;
+  display: block;
 }
 
-.choix__titre, .choix__description {
+.choix__titre, .choix__description, .conteneur__choix--description div {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
