@@ -680,6 +680,7 @@ body .index header .header__navbar {
   gap: 12px;
   width: 100%;
   max-width: 634px;
+  opacity: 0;
 }
 @media screen and (min-width: 768px) {
   .restaurant .menu__complet {
@@ -695,7 +696,24 @@ body .index header .header__navbar {
   background-repeat: no-repeat;
   background-size: 100% 3px;
 }
+.restaurant .menu .menu__entrees {
+  animation: apparaitre 1s calc(0 * 1s) ease forwards;
+}
+.restaurant .menu .menu__plats {
+  animation: apparaitre 1s calc(1 * 1s) ease forwards;
+}
+.restaurant .menu .menu__desserts {
+  animation: apparaitre 1s calc(2 * 1s) ease forwards;
+}
 
+@keyframes apparaitre {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .restaurant footer, .restaurant .menu {
   position: relative;
   top: -60px;

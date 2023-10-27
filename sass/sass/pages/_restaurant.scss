@@ -27,6 +27,7 @@
         }
         &__complet{
             @include box($direction: column, $gap:12px, $width: 100%, $maxwidth: 634px);
+            opacity: 0;
             @media #{$medium}{
                 width: 80%;
             }
@@ -39,6 +40,22 @@
             background-repeat: no-repeat; 
             background-size: 100% 3px;
         }
+        
+        $menus: (0: entrees, 1: plats, 2: desserts);
+        @each $i, $menu in $menus{
+            .menu__#{$menu}{
+                animation: apparaitre 1s calc(#{$i}*1s) ease forwards;
+            }
+        }
+    }
+
+}
+@keyframes apparaitre{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
     }
 }
 .restaurant footer, .restaurant .menu{
