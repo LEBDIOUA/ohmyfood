@@ -741,7 +741,6 @@ body {
 }
 
 .index {
-  animation: chargement 1s linear 9s reverse forwards;
   opacity: 0.1;
   z-index: 0;
   overflow: hidden;
@@ -755,7 +754,6 @@ body {
   align-self: center;
   width: 250px;
   height: 150px;
-  animation: chargement 1s linear 9s forwards;
   opacity: 1;
 }
 
@@ -777,12 +775,12 @@ body {
 }
 
 .ferme {
-  animation: secouer 0.5s 2, remplir reverse 1s ease 1s forwards 8;
+  animation: remplir reverse 1s ease 0s forwards 3;
 }
 
 .ouvert {
   opacity: 0;
-  animation: remplir 1s ease 1s forwards 8;
+  animation: remplir 1s ease 0s forwards 3;
 }
 
 #gradientName stop:first-child {
@@ -809,23 +807,6 @@ body {
     opacity: 1;
   }
 }
-@keyframes secouer {
-  0% {
-    transform: translate(0px, 0px);
-  }
-  25% {
-    transform: translate(10px, 10px);
-  }
-  50% {
-    transform: translate(20px, 0px);
-  }
-  75% {
-    transform: translate(10px, 10px);
-  }
-  100% {
-    transform: translate(0px, 0px);
-  }
-}
 @keyframes grandir {
   0% {
     transform: scale(0.6);
@@ -850,48 +831,35 @@ body {
   transform: translatey(-1000px);
 }
 
-.element1 {
+.element0 {
   top: 30px;
-  left: 55px;
-}
-
-.element2 {
-  top: -5px;
-  left: 20px;
-}
-
-.element3 {
-  top: -35px;
   left: 0px;
 }
 
-.element4 {
-  top: -60px;
-  left: -10px;
-}
-
-.element5 {
-  top: -60px;
-  left: -5px;
-}
-
-.element6 {
-  top: -35px;
-  left: -20px;
-}
-
-.element7 {
-  top: -5px;
-  left: -35px;
-}
-
-.element8 {
-  top: 30px;
-  left: -70px;
-}
-
 .element1 {
-  animation: logo1 1s 1.5s forwards;
+  top: -60px;
+  left: 20px;
+}
+
+.element2 {
+  top: 30px;
+  left: 20px;
+}
+
+.element0 {
+  animation: logo0 0.5s 0.5s forwards;
+}
+
+@keyframes logo0 {
+  0% {
+    transform: translatey(0px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+.element1 {
+  animation: logo1 0.5s 1.5s forwards;
 }
 
 @keyframes logo1 {
@@ -903,82 +871,10 @@ body {
   }
 }
 .element2 {
-  animation: logo2 1s 2.5s forwards;
+  animation: logo2 0.5s 2.5s forwards;
 }
 
 @keyframes logo2 {
-  0% {
-    transform: translatey(0px);
-  }
-  100% {
-    transform: translatey(0px);
-  }
-}
-.element3 {
-  animation: logo3 1s 3.5s forwards;
-}
-
-@keyframes logo3 {
-  0% {
-    transform: translatey(0px);
-  }
-  100% {
-    transform: translatey(0px);
-  }
-}
-.element4 {
-  animation: logo4 1s 4.5s forwards;
-}
-
-@keyframes logo4 {
-  0% {
-    transform: translatey(0px);
-  }
-  100% {
-    transform: translatey(0px);
-  }
-}
-.element5 {
-  animation: logo5 1s 5.5s forwards;
-}
-
-@keyframes logo5 {
-  0% {
-    transform: translatey(0px);
-  }
-  100% {
-    transform: translatey(0px);
-  }
-}
-.element6 {
-  animation: logo6 1s 6.5s forwards;
-}
-
-@keyframes logo6 {
-  0% {
-    transform: translatey(0px);
-  }
-  100% {
-    transform: translatey(0px);
-  }
-}
-.element7 {
-  animation: logo7 1s 7.5s forwards;
-}
-
-@keyframes logo7 {
-  0% {
-    transform: translatey(0px);
-  }
-  100% {
-    transform: translatey(0px);
-  }
-}
-.element8 {
-  animation: logo8 1s 8.5s forwards;
-}
-
-@keyframes logo8 {
   0% {
     transform: translatey(0px);
   }

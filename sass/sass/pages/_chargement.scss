@@ -9,7 +9,7 @@ body{
     z-index: 1;
 }
 .index{
-    animation: chargement 1s linear 9s reverse forwards;
+    //animation: chargement 1s linear 3s reverse forwards;
     opacity: 0.1;
     z-index: 0;    
     overflow: hidden;
@@ -17,7 +17,7 @@ body{
 .chargement{
     position: relative;
     @include box($centrer: center, $width: 250px, $height: 150px);
-    animation: chargement 1s linear 9s forwards;  
+    //animation: chargement 1s linear 3s forwards;  
     opacity: 1;
 }
 @keyframes chargement {
@@ -35,12 +35,11 @@ body{
     @include box($width: 50%, $height: 50%);
 }
 .ferme{
-    animation: secouer .5s 2,  remplir reverse 1s ease 1s forwards 8;
+    animation: remplir reverse 1s ease 0s forwards 3;
 }
 .ouvert{
     opacity: 0;
-    //animation: remplir .1s ease 2s forwards, grandir 1s 10;
-    animation: remplir 1s ease 1s forwards 8;
+    animation: remplir 1s ease 0s forwards 3;
 }   
 #gradientName stop:first-child{
     stop-color: $violet;
@@ -62,23 +61,6 @@ body{
         opacity: 1;
     }
 }
-@keyframes secouer {
-    0%{
-        transform: translate(0px, 0px);
-    }
-    25%{
-        transform: translate(10px, 10px);
-    }
-    50%{
-        transform: translate(20px, 0px);
-    }
-    75%{
-        transform: translate(10px, 10px);
-    }
-    100%{
-        transform: translate(0px, 0px);
-    }
-}
 @keyframes grandir {
     0%{
         transform: scale(0.6);
@@ -95,41 +77,21 @@ body{
     text-transform: lowercase;
     transform: translatey(-1000px);
 }
-.element1{
+.element0{
     top: 30px;
-    left: 55px;
-}
-.element2{
-    top: -5px;
-    left: 20px;
-}
-.element3{
-    top: -35px;
     left: 0px;
 }
-.element4{
+.element1{
     top: -60px;
-    left: -10px;
+    left: 20px;
 }
-.element5{
-    top: -60px;
-    left: -5px;
-}
-.element6{
-    top: -35px;
-    left: -20px;
-}
-.element7{
-    top: -5px;
-    left: -35px;
-}
-.element8{
+.element2{
     top: 30px;
-    left: -70px;
+    left: 20px;
 }
-@for $i from 1 to 9{
+@for $i from 0 to 3{
     .element#{$i}{
-        animation: logo#{$i} 1s $i+0.5s forwards;
+        animation: logo#{$i} .5s $i+.5s forwards;
     }
     @keyframes logo#{$i}{
         0%{
