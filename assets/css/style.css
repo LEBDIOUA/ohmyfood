@@ -741,6 +741,7 @@ body {
 }
 
 .index {
+  animation: chargement 1s linear 3s reverse forwards;
   opacity: 0.1;
   z-index: 0;
   overflow: hidden;
@@ -754,6 +755,7 @@ body {
   align-self: center;
   width: 250px;
   height: 150px;
+  animation: chargement 1s linear 3s forwards;
   opacity: 1;
 }
 

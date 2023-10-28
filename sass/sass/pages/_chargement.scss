@@ -9,7 +9,7 @@ body{
     z-index: 1;
 }
 .index{
-    //animation: chargement 1s linear 3s reverse forwards;
+    animation: chargement 1s linear 3s reverse forwards;
     opacity: 0.1;
     z-index: 0;    
     overflow: hidden;
@@ -17,7 +17,7 @@ body{
 .chargement{
     position: relative;
     @include box($centrer: center, $width: 250px, $height: 150px);
-    //animation: chargement 1s linear 3s forwards;  
+    animation: chargement 1s linear 3s forwards;  
     opacity: 1;
 }
 @keyframes chargement {
